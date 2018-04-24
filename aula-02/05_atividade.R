@@ -26,10 +26,10 @@ length(acessos_alunos)
 ## Utilizando o seu código de aluno da Uniritter como nome de um valor da lista, imprima uma linha informando quantos acessos
 ## você fez. A linha deve ser impressa na Console, com um texto que diga o seu código de aluno e o valor conforme o seguinte exemplo:
 ## "O aluno <alu...> realizou N acessos."
-paste("O Aluno Alu201830290 realizou", acessos_alunos$alu201830290, "acessos.")
 ## Dica 1: Utilize a função paste() para composição do texto que será impresso. 
 ## Dica 2: Vimos exemplos disto nos materiais dos tipos numéricos e das estruturas de dados.
 ### # ###
+paste("O Aluno Alu201830290 realizou", acessos_alunos$alu201830290, "acessos.")
 
 
 
@@ -37,20 +37,24 @@ paste("O Aluno Alu201830290 realizou", acessos_alunos$alu201830290, "acessos.")
 ## A operação abaixo cria um vetor com todas as quantidades de acessos por aluno.
 acessos <- unlist(acessos_alunos)
 
+acessos
 ## Após a criação deste vetor, determine quantos colegas fizeram mais acessos que você.
 ## Faça isso em 3 etapas: 
 ## 1. Crie uma variável com o resultado de um teste de comparação (relacional) entre o seu número de acessos e os demais.
 ## 2. Com uma operação de indexação, crie um outro vetor contendo somente os valores maiores
 ## 3. Determine o tamanho do vetor da operação 2, imprimindo o resultado na Console
 ### # ###
+alunos_acessos <- acessos>acessos_alunos$alu201830290
 
+#-- WHICH TRAZ POSICOES/INDICES
+maiores_alunos <- which(alunos_acessos)
 
-
+length(maiores_alunos)
 ### 5 ###
 ## Combine todas as etapas acima em uma única chamada, sem a criação dos vetores auxiliares
 ### # ###
 
-
+length(which(acessos>acessos_alunos$alu201830290))
 
 ### 6 ###
 ## Agora determine quantos colegas fizeram menos acessos que você. 
@@ -58,8 +62,8 @@ acessos <- unlist(acessos_alunos)
 
 ## Dica: Lembre que falamos sobre como o R faz conversões implícitas entre o tipo lógico e tipos numéricos
 ### # ###
-
-
+acessos <= acessos_alunos$alu201830290
+sum(acessos<=acessos_alunos$alu201830290)
 
 ### 7 ###
 ## Supondo que eu quero atribuir uma nota de participação baseada na quantidade de acessos, com a seguinte definição:
