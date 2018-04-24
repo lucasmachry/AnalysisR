@@ -49,8 +49,8 @@ if( is.numeric(42) ) {
 if( is.integer(42L) ) { ### Detalhe para o L
   print("É inteiro!")  
 }
-
-if( is.integer( as.integer(42) )) {
+#' Nota. Colocando as.integer, ele quebra e IGNORA os número depois da quebra.
+if( is.integer( as.integer(42.9) )) {
   print("É inteiro!")  
 }
 
@@ -109,10 +109,12 @@ print( is.numeric(eh_numerico + 0) )
 ## ------------------------------------------------------------------------
 valor_presente <- 42
 valor_ausente <- NA
+test_null <- NULL
 
 print(paste("Soma com NA resulta em", 42 + NA))
 print( is.na(valor_ausente) )
 
+print( is.na(test_null) )
 #' 
 #' ### _Not a Number_, Inf e -Inf
 #' 
